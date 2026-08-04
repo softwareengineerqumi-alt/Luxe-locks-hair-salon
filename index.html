@@ -10,9 +10,6 @@
             --bg-color: #f7f4ee;
             --text-color: #4a4238;
             --accent-color: #c5a059;
-            --accent-pink: #e8b4b8;
-            --nav-bubble-bg: rgba(197, 160, 89, 0.15);
-            --nav-bubble-border: rgba(197, 160, 89, 0.4);
             --card-bg: #ffffff;
             --header-tint: #eee7dc;
             --input-bg: #fff;
@@ -23,34 +20,37 @@
             --bg-color: #121013;
             --text-color: #f3e9f1;
             --accent-color: #ff758c;
-            --accent-pink: #ffb6c1;
-            --nav-bubble-bg: rgba(255, 117, 140, 0.15);
-            --nav-bubble-border: rgba(255, 117, 140, 0.4);
             --card-bg: #1e191f;
             --header-tint: #2a2028;
             --input-bg: #272128;
             --border-color: #3e323f;
         }
 
-        /* Glitter background effect for dark mode */
+        /* Fixed Glitter Background for Dark Mode */
         [data-theme="dark"] body {
+            background-color: #121013 !important;
             background-image: 
-                radial-gradient(white, rgba(255,255,255,0.2) 2px, transparent 40px),
-                radial-gradient(rgba(255,182,193,0.8), rgba(255,105,180,0.1) 1px, transparent 30px);
-            background-size: 550px 550px, 350px 350px;
-            background-position: 0 0, 40px 60px;
+                radial-gradient(circle, rgba(255,255,255,0.9) 2px, transparent 3px),
+                radial-gradient(circle, rgba(255,105,180,0.7) 1.5px, transparent 2px),
+                radial-gradient(circle, rgba(255,215,0,0.6) 1px, transparent 2px) !important;
+            background-size: 300px 300px, 200px 200px, 250px 250px !important;
+            background-position: 0 0, 50px 100px, 100px 50px !important;
+        }
+
+        [data-theme="light"] body {
+            background-color: var(--bg-color) !important;
+            background-image: none !important;
         }
 
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background 0.5s ease, color 0.5s ease;
+            transition: background 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Top Announcement Bar */
         .announcement-bar {
             background-color: var(--header-tint);
             text-align: center;
@@ -58,9 +58,9 @@
             font-size: 0.85rem;
             font-weight: 500;
             border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s ease;
         }
 
-        /* Header & Bubble Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -71,6 +71,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background 0.4s ease;
         }
 
         .logo {
@@ -82,6 +83,7 @@
             gap: 8px;
         }
 
+        /* Always Floating Bubble Nav & Toggle */
         .bubble-nav {
             display: flex;
             gap: 12px;
@@ -95,23 +97,29 @@
             align-items: center;
             padding: 8px 18px;
             border-radius: 50px;
-            background: var(--nav-bubble-bg);
-            border: 1px solid var(--nav-bubble-border);
+            background: rgba(197, 160, 89, 0.2);
+            border: 1px solid rgba(197, 160, 89, 0.4);
             color: var(--text-color);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
             backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             animation: floatBubble 4s ease-in-out infinite alternate;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        [data-theme="dark"] .bubble {
+            background: rgba(255, 117, 140, 0.2);
+            border: 1px solid rgba(255, 117, 140, 0.5);
+            color: var(--text-color);
         }
 
         .bubble:nth-child(even) { animation-duration: 5s; animation-delay: 1s; }
         .bubble:nth-child(3) { animation-duration: 4.5s; animation-delay: 0.5s; }
 
         .bubble:hover {
-            transform: scale(1.1) translateY(-3px);
+            transform: scale(1.12) translateY(-4px);
             background: var(--accent-color);
             color: #fff;
         }
@@ -121,28 +129,36 @@
             background: none;
             border: 2px solid var(--accent-color);
             color: var(--text-color);
-            padding: 7px 14px;
-            border-radius: 20px;
+            padding: 7px 16px;
+            border-radius: 50px;
             font-family: 'Poppins', sans-serif;
             font-size: 0.8rem;
             font-weight: 600;
+            animation: floatBubble 4.2s ease-in-out infinite alternate;
             transition: all 0.3s ease;
         }
 
         .theme-toggle:hover {
             background: var(--accent-color);
             color: #fff;
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        @keyframes floatBubble {
+            0% { transform: translateY(0px) translateX(0px); }
+            100% { transform: translateY(-6px) translateX(4px); }
         }
 
         /* Hero Section */
         .hero-section {
             position: relative;
             padding: 60px 5% 100px 5%;
-            background: linear-gradient(to bottom, var(--header-tint), var(--bg-color));
+            background: linear-gradient(to bottom, var(--header-tint), transparent);
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
             gap: 40px;
+            transition: background 0.4s ease;
         }
 
         .hero-content h3 {
@@ -204,15 +220,12 @@
             transition: all 0.2s;
         }
 
-        .btn-primary:hover, .btn-outline:hover {
-            transform: scale(1.03);
-        }
+        .btn-primary:hover, .btn-outline:hover { transform: scale(1.03); }
 
         .clients-review {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 0.85krem;
         }
 
         .client-avatars img {
@@ -221,13 +234,13 @@
             border-radius: 50%;
             border: 2px solid var(--bg-color);
             margin-left: -12px;
+            object-fit: cover;
         }
         .client-avatars img:first-child { margin-left: 0; }
 
         .stars { color: #f4a261; font-size: 0.9rem; }
 
         .hero-image-container {
-            position: relative;
             display: flex;
             justify-content: center;
         }
@@ -238,10 +251,10 @@
             border-radius: 200px 200px 20px 20px;
             object-fit: cover;
             height: 480px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
-        /* Services & Booking Section Grid */
+        /* Main Grid & Content */
         .main-container {
             max-width: 1200px;
             margin: -40px auto 60px auto;
@@ -273,7 +286,6 @@
             gap: 30px;
         }
 
-        /* Services Cards */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -284,16 +296,14 @@
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
             text-align: center;
             padding-bottom: 20px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.4s ease;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
+        .service-card:hover { transform: translateY(-5px); }
 
         .service-card img {
             width: 100%;
@@ -322,16 +332,17 @@
             font-weight: 600;
             font-size: 0.9rem;
             color: var(--text-color);
+            transition: background 0.4s ease;
         }
 
-        /* Interactive Booking Widget */
         .booking-card {
             background: var(--card-bg);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border: 1px solid var(--border-color);
             height: fit-content;
+            transition: background 0.4s ease;
         }
 
         .booking-card h3 {
@@ -340,9 +351,7 @@
             margin-bottom: 20px;
         }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+        .form-group { margin-bottom: 15px; }
 
         .form-group label {
             display: block;
@@ -361,6 +370,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 0.85rem;
             box-sizing: border-box;
+            transition: background 0.4s ease, color 0.4s ease;
         }
 
         .booking-submit-btn {
@@ -373,11 +383,6 @@
             font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
-            transition: background 0.3s;
-        }
-
-        .booking-submit-btn:hover {
-            opacity: 0.9;
         }
 
         .success-message {
@@ -391,7 +396,6 @@
             text-align: center;
         }
 
-        /* Features Footer Banner */
         .features-banner {
             background-color: #a3b18b;
             color: #fff;
@@ -403,41 +407,24 @@
             margin-top: 60px;
         }
 
-        .feature-item h4 {
-            margin: 10px 0 5px 0;
-            font-size: 1rem;
-        }
+        .feature-item h4 { margin: 10px 0 5px 0; font-size: 1rem; }
+        .feature-item p { font-size: 0.75rem; opacity: 0.9; margin: 0; }
 
-        .feature-item p {
-            font-size: 0.75rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        @keyframes floatBubble {
-            0% { transform: translateY(0px) translateX(0px); }
-            100% { transform: translateY(-5px) translateX(4px); }
-        }
-
-        /* Responsive Design */
         @media(max-width: 900px) {
             .hero-section { grid-template-columns: 1fr; text-align: center; }
             .hero-content { display: flex; flex-direction: column; align-items: center; }
             .content-grid { grid-template-columns: 1fr; }
             .services-grid { grid-template-columns: 1fr; }
             .features-banner { grid-template-columns: repeat(2, 1fr); }
-            .bubble-nav { display: none; } /* Simplified for smaller mobile screens */
         }
     </style>
 </head>
 <body data-theme="light">
 
-    <!-- Top Bar -->
     <div class="announcement-bar">
         🎀 BOOK YOUR APPOINTMENT TODAY & FEEL YOUR BEST 🎀
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">Luxe Locks <span style="font-size: 1.2rem;">🎀</span></div>
         
@@ -449,7 +436,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section" id="home">
         <div class="hero-content">
             <h3>Beauty. Confidence. You. 🤍</h3>
@@ -479,7 +465,6 @@
         </div>
     </section>
 
-    <!-- Main Content Area: Services & Interactive Booking Form -->
     <div class="main-container" id="services">
         <div class="section-header">
             <h4>Our Services 🤍</h4>
@@ -487,7 +472,6 @@
         </div>
 
         <div class="content-grid">
-            <!-- Services Cards -->
             <div class="services-grid">
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1595476108010-b9d1f6931c0d?w=400" alt="Sew-In Weave">
@@ -511,7 +495,6 @@
                 </div>
             </div>
 
-            <!-- Interactive Booking Widget -->
             <div class="booking-card" id="booking">
                 <h3>Book Your Appointment 🎀</h3>
                 <form id="bookingForm" onsubmit="handleBooking(event)">
@@ -547,7 +530,6 @@
         </div>
     </div>
 
-    <!-- Features Banner Footer -->
     <div class="features-banner">
         <div class="feature-item">
             <span style="font-size: 1.5rem;">🤍</span>
@@ -572,7 +554,6 @@
     </div>
 
     <script>
-        // Theme Toggle Logic
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute("data-theme");
@@ -587,7 +568,6 @@
             }
         }
 
-        // Interactive Booking Form Logic
         function handleBooking(event) {
             event.preventDefault();
             const name = document.getElementById('clientName').value;
@@ -598,7 +578,6 @@
             successMsg.style.display = 'block';
             successMsg.textContent = `🎉 Thank you ${name}! Your booking for ${service} on ${date} is confirmed.`;
 
-            // Reset form fields after 4 seconds
             setTimeout(() => {
                 document.getElementById('bookingForm').reset();
                 successMsg.style.display = 'none';
