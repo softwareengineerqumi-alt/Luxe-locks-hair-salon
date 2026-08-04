@@ -6,9 +6,6 @@
     <title>Luxe Locks Hair Studio | Professional Hair & Braids</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ==========================================================================
-           1. CSS VARIABLES & THEME SETUP (~700 Lines Architecture)
-           ========================================================================== */
         :root {
             --bg-main: #FDFBF7;
             --bg-card: #FFFFFF;
@@ -35,9 +32,6 @@
             --sidebar-bg: rgba(30, 30, 30, 0.95);
         }
 
-        /* ==========================================================================
-           2. GLOBAL RESET & BASE STYLES
-           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -62,9 +56,6 @@
             list-style: none;
         }
 
-        /* ==========================================================================
-           3. ANNOUNCEMENT BAR
-           ========================================================================== */
         .announcement-bar {
             background-color: var(--sage-accent);
             color: #FFFFFF;
@@ -75,9 +66,6 @@
             font-weight: 500;
         }
 
-        /* ==========================================================================
-           4. NAVIGATION BAR
-           ========================================================================== */
         nav {
             display: flex;
             justify-content: space-between;
@@ -105,10 +93,6 @@
             gap: 30px;
             font-size: 14px;
             font-weight: 500;
-        }
-
-        .nav-links a {
-            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -165,9 +149,7 @@
             transform: translateX(26px);
         }
 
-        /* ==========================================================================
-           5. FLOATING FUN BUBBLES (Navigation + Action Bubbles)
-           ========================================================================== */
+        /* Floating Fun Bubbles Nav */
         .floating-bubbles-nav {
             position: fixed;
             bottom: 30px;
@@ -192,7 +174,7 @@
             font-weight: 600;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease;
             animation: floatBubble 3.5s ease-in-out infinite;
             padding: 5px;
             line-height: 1.1;
@@ -201,10 +183,6 @@
         .bubble-btn:nth-child(even) {
             animation-delay: 1.2s;
             background-color: var(--pink-accent);
-        }
-
-        .bubble-btn:nth-child(3) {
-            animation-delay: 2.4s;
         }
 
         .bubble-btn:hover {
@@ -216,9 +194,7 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* ==========================================================================
-           6. HERO SECTION
-           ========================================================================== */
+        /* Hero Section */
         .hero {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -256,6 +232,7 @@
             line-height: 1.6;
         }
 
+        /* Floating Hero Action Buttons */
         .hero-buttons {
             display: flex;
             gap: 15px;
@@ -263,28 +240,36 @@
             margin-bottom: 35px;
         }
 
-        .btn-primary {
+        .btn-floating-action-1 {
             background-color: var(--sage-accent);
             color: #FFFFFF;
-            padding: 14px 30px;
+            padding: 14px 28px;
             border-radius: 30px;
             font-weight: 600;
             box-shadow: var(--box-shadow);
-            transition: transform 0.2s ease;
+            display: inline-block;
+            animation: floatHeroBtn1 4s ease-in-out infinite;
         }
 
-        .btn-secondary {
+        .btn-floating-action-2 {
             background-color: transparent;
             color: var(--text-main);
-            padding: 14px 30px;
+            padding: 14px 28px;
             border-radius: 30px;
             font-weight: 600;
             border: 2px solid var(--sage-accent);
-            transition: all 0.2s ease;
+            display: inline-block;
+            animation: floatHeroBtn2 4.5s ease-in-out infinite;
         }
 
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-3px);
+        @keyframes floatHeroBtn1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-4px, -6px); }
+        }
+
+        @keyframes floatHeroBtn2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(4px, -6px); }
         }
 
         .reviews-badge {
@@ -312,7 +297,6 @@
             border-radius: 210px 210px 20px 20px;
             box-shadow: var(--box-shadow);
             border: 6px solid var(--bg-card);
-            transition: border-color 0.4s ease;
         }
 
         .wave-shape {
@@ -324,9 +308,6 @@
             transition: background-color 0.4s ease;
         }
 
-        /* ==========================================================================
-           7. MAIN SERVICES & BOOKING SECTION
-           ========================================================================== */
         .main-section {
             background-color: var(--bg-card);
             padding: 40px 8% 90px 8%;
@@ -363,11 +344,6 @@
             padding: 18px;
             text-align: center;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, background-color 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
         }
 
         .service-card img {
@@ -399,10 +375,8 @@
             border-radius: 20px;
             display: inline-block;
             box-shadow: 0 3px 8px rgba(0,0,0,0.04);
-            transition: background-color 0.4s ease;
         }
 
-        /* Booking Sidebar Form */
         .booking-sidebar {
             background: var(--sidebar-bg);
             backdrop-filter: blur(14px);
@@ -413,7 +387,6 @@
             height: fit-content;
             position: sticky;
             top: 100px;
-            transition: background-color 0.4s ease;
         }
 
         .booking-sidebar h3 {
@@ -435,11 +408,6 @@
             font-size: 14px;
             color: var(--text-main);
             outline: none;
-            transition: border-color 0.3s ease, background-color 0.4s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--sage-accent);
         }
 
         .submit-booking {
@@ -451,13 +419,8 @@
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease;
             margin-top: 5px;
             font-size: 15px;
-        }
-
-        .submit-booking:hover {
-            opacity: 0.9;
         }
 
         .booking-note {
@@ -467,14 +430,10 @@
             margin-top: 15px;
         }
 
-        /* ==========================================================================
-           8. GALLERY SECTION
-           ========================================================================== */
         .gallery-section {
             background-color: var(--bg-main);
             padding: 90px 8%;
             text-align: center;
-            transition: background-color 0.4s ease;
         }
 
         .gallery-section h2 {
@@ -500,16 +459,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
-        .gallery-item img:hover {
-            transform: scale(1.08);
-        }
-
-        /* ==========================================================================
-           9. FEATURES BAR & FOOTER
-           ========================================================================== */
         .features-bar {
             background-color: var(--sage-light);
             display: grid;
@@ -517,7 +468,6 @@
             padding: 45px 8%;
             gap: 25px;
             text-align: center;
-            transition: background-color 0.4s ease;
         }
 
         .feature-item h5 {
@@ -568,11 +518,6 @@
             justify-content: center;
             font-weight: 600;
             font-size: 14px;
-            transition: background 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            background: rgba(255,255,255,0.4);
         }
 
         .copyright {
@@ -580,9 +525,6 @@
             opacity: 0.9;
         }
 
-        /* ==========================================================================
-           10. RESPONSIVE MEDIA QUERIES
-           ========================================================================== */
         @media (max-width: 992px) {
             .hero, .main-section, .gallery-grid, .features-bar {
                 grid-template-columns: 1fr;
@@ -601,12 +543,10 @@
 </head>
 <body>
 
-    <!-- Announcement Bar -->
     <div class="announcement-bar">
         🎀 BOOK YOUR APPOINTMENT TODAY & FEEL YOUR BEST 🎀
     </div>
 
-    <!-- Navigation Bar -->
     <nav>
         <a href="#" class="logo">
             🎀 Luxe Locks <span style="font-size:10px; font-weight:300;">HAIR STUDIO +</span>
@@ -618,7 +558,6 @@
             <li><a href="#book">Book Now</a></li>
         </ul>
 
-        <!-- Dark/Light Mode Switch -->
         <div class="theme-switch-wrapper">
             <span>Light</span>
             <label class="theme-switch" for="checkbox">
@@ -628,10 +567,10 @@
             <span>Dark</span>
         </div>
 
-        <a href="#book" class="btn-primary" style="padding: 10px 20px; font-size: 13px;">Book Now</a>
+        <a href="#book" class="btn-floating-action-1" style="padding: 8px 16px; font-size: 13px; animation: none;">Book Now</a>
     </nav>
 
-    <!-- Floating Fun Action Bubbles (Home, Styles, Gallery, Book) -->
+    <!-- Floating Fun Bubbles Nav -->
     <div class="floating-bubbles-nav">
         <a href="#" class="bubble-btn">Home</a>
         <a href="#services" class="bubble-btn">Styles</a>
@@ -639,32 +578,33 @@
         <a href="#book" class="bubble-btn">Book</a>
     </div>
 
-    <!-- Hero Section with Verified Black Woman Braids Image -->
     <section class="hero">
         <div class="hero-content">
             <h3>Beauty. Confidence. You. 🤍</h3>
             <h1>Where Beauty Meets <span>Confidence</span> 🎀</h1>
             <p>Luxury braids, custom wig units, and immaculate installations designed for the modern South African woman who values style, neatness, and luxury.</p>
+            
+            <!-- Floating Hero Buttons -->
             <div class="hero-buttons">
-                <a href="#book" class="btn-primary">Book Your Appointment 🎀</a>
-                <a href="#services" class="btn-secondary">View Services</a>
+                <a href="#book" class="btn-floating-action-1">Book Your Appointment 🎀</a>
+                <a href="#services" class="btn-floating-action-2">View Services</a>
             </div>
+
             <div class="reviews-badge">
                 <div class="stars">★★★★★</div>
                 <span><strong>500+ Happy Clients</strong></span>
             </div>
         </div>
         <div class="hero-image-container">
-            <!-- Guaranteed High-Quality Photo of a Black Woman with Braids -->
-            <img src="https://images.unsplash.com/photo-1584297091926-9eb39ecd247b?auto=format&fit=crop&q=80&w=800" 
-                 alt="Stunning Black woman with knotless braids" 
+            <!-- Stable direct photo of a Black woman with professional box braids -->
+            <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=800" 
+                 alt="Stunning Black woman with braids" 
                  class="hero-main-img">
         </div>
     </section>
 
     <div class="wave-shape"></div>
 
-    <!-- Services & Extended Style List Section -->
     <section class="main-section" id="services">
         <div class="services-container">
             <div class="section-title">Our Menu 🤍</div>
@@ -673,42 +613,36 @@
             </div>
             
             <div class="services-grid">
-                <!-- 1. Knotless Braids -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1605980776563-430932bb0b3a?auto=format&fit=crop&q=80&w=600" alt="Knotless Braids">
                     <h4>Knotless Braids</h4>
                     <p>Lightweight, natural, pain-free tension finish.</p>
                     <div class="price-tag">R750 🎀</div>
                 </div>
-                <!-- 2. Goddess Braids -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=600" alt="Goddess Braids">
                     <h4>Goddess Braids</h4>
                     <p>Boho-chic curly ends with razor-sharp parting.</p>
                     <div class="price-tag">R850 🎀</div>
                 </div>
-                <!-- 3. Straight Back Cornrows -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600" alt="Straight Back">
                     <h4>Straight Back Cornrows</h4>
                     <p>Sleek, neat, and long-lasting classic look.</p>
                     <div class="price-tag">R400 🎀</div>
                 </div>
-                <!-- 4. Straight Up (Stitch Cornrows) -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1595476108010-b9d6f212e3e5?auto=format&fit=crop&q=80&w=600" alt="Straight Up">
                     <h4>Straight Up / Stitch Lines</h4>
                     <p>Precise clean lines for an iconic look.</p>
                     <div class="price-tag">R450 🎀</div>
                 </div>
-                <!-- 5. Wig Installation -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=600" alt="Wig Installation">
                     <h4>Wig Installation</h4>
                     <p>Melts, custom hairline styling & flawless fit.</p>
                     <div class="price-tag">R600 🎀</div>
                 </div>
-                <!-- 6. Pintail Installation / Quickweave -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=600" alt="Pintail Installation">
                     <h4>Pintail / Quickweave</h4>
@@ -718,7 +652,6 @@
             </div>
         </div>
 
-        <!-- Glassmorphism Booking Form Sidebar -->
         <div class="booking-sidebar" id="book">
             <h3>Book Your Appointment 🎀</h3>
             <form onsubmit="event.preventDefault(); alert('Booking request sent successfully!');">
@@ -748,7 +681,6 @@
         </div>
     </section>
 
-    <!-- Extended Photo Gallery Section -->
     <section class="gallery-section" id="gallery">
         <h2>Our Salon Gallery 📸</h2>
         <div class="gallery-grid">
@@ -764,7 +696,6 @@
         </div>
     </section>
 
-    <!-- Features Bar -->
     <section class="features-bar">
         <div class="feature-item">
             <h5>Premium Products</h5>
@@ -784,7 +715,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">Luxe Locks HAIR STUDIO +</div>
@@ -799,18 +729,15 @@
         </div>
     </footer>
 
-    <!-- JavaScript Handling Theme Toggling -->
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         const currentTheme = localStorage.getItem('theme');
-        
         if (currentTheme) {
             document.body.classList.add(currentTheme);
             if (currentTheme === 'dark-mode') {
                 toggleSwitch.checked = true;
             }
         }
-
         function toggleTheme() {
             if (toggleSwitch.checked) {
                 document.body.classList.add('dark-mode');
