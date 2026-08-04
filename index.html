@@ -3,25 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Locks Hair Studio</title>
+    <title>Luxe Locks Hair Studio | Professional Hair & Braids</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEME SETUP (~700 Lines Architecture)
+           ========================================================================== */
         :root {
             --bg-main: #FDFBF7;
+            --bg-card: #FFFFFF;
             --text-main: #3E3E3E;
+            --text-muted: #666666;
             --sage-accent: #879374;
+            --sage-light: #C4CCA8;
             --pink-accent: #E8A598;
+            --border-color: rgba(135, 147, 116, 0.2);
             --box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            --sidebar-bg: rgba(253, 251, 247, 0.95);
         }
 
         body.dark-mode {
             --bg-main: #121212;
+            --bg-card: #1E1E1E;
             --text-main: #E0E0E0;
+            --text-muted: #AAAAAA;
             --sage-accent: #A4B48C;
+            --sage-light: #556044;
             --pink-accent: #EFBDB4;
-            --box-shadow: 0 15px 30px rgba(255,255,255,0.05);
+            --border-color: rgba(164, 180, 140, 0.2);
+            --box-shadow: 0 15px 30px rgba(255,255,255,0.03);
+            --sidebar-bg: rgba(30, 30, 30, 0.95);
         }
 
+        /* ==========================================================================
+           2. GLOBAL RESET & BASE STYLES
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -32,20 +48,36 @@
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ==========================================================================
+           3. ANNOUNCEMENT BAR
+           ========================================================================== */
         .announcement-bar {
             background-color: var(--sage-accent);
             color: #FFFFFF;
             text-align: center;
-            padding: 8px;
+            padding: 9px;
             font-size: 13px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            font-weight: 500;
         }
 
+        /* ==========================================================================
+           4. NAVIGATION BAR
+           ========================================================================== */
         nav {
             display: flex;
             justify-content: space-between;
@@ -55,8 +87,8 @@
             top: 0;
             z-index: 1000;
             background-color: var(--bg-main);
-            border-bottom: 1px solid rgba(135, 147, 116, 0.2);
-            transition: background-color 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.4s ease;
         }
 
         .logo {
@@ -65,34 +97,31 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-main);
-            text-decoration: none;
+            font-weight: 600;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
-            list-style: none;
             font-size: 14px;
             font-weight: 500;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--sage-accent);
         }
 
-        /* Dark Mode Toggle Switch */
+        /* Theme Toggle Switch */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 12px;
-            color: var(--text-main);
+            font-weight: 500;
         }
 
         .theme-switch {
@@ -136,22 +165,24 @@
             transform: translateX(26px);
         }
 
-        /* Floating Fun Bubbles Bar */
+        /* ==========================================================================
+           5. FLOATING FUN BUBBLES (Navigation + Action Bubbles)
+           ========================================================================== */
         .floating-bubbles-nav {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .bubble-btn {
             background-color: var(--sage-accent);
             color: #FFFFFF;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -160,32 +191,40 @@
             font-size: 11px;
             font-weight: 600;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             transition: transform 0.3s ease, background-color 0.3s ease;
-            animation: floatBubble 3s ease-in-out infinite;
+            animation: floatBubble 3.5s ease-in-out infinite;
+            padding: 5px;
+            line-height: 1.1;
         }
 
         .bubble-btn:nth-child(even) {
-            animation-delay: 1.5s;
+            animation-delay: 1.2s;
             background-color: var(--pink-accent);
         }
 
+        .bubble-btn:nth-child(3) {
+            animation-delay: 2.4s;
+        }
+
         .bubble-btn:hover {
-            transform: scale(1.15);
+            transform: scale(1.15) rotate(5deg);
         }
 
         @keyframes floatBubble {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* Hero Section */
+        /* ==========================================================================
+           6. HERO SECTION
+           ========================================================================== */
         .hero {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
-            padding: 60px 8% 80px 8%;
+            padding: 70px 8% 90px 8%;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
         }
 
         .hero-content h3 {
@@ -199,7 +238,7 @@
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 52px;
+            font-size: 54px;
             line-height: 1.1;
             margin-bottom: 20px;
         }
@@ -210,44 +249,49 @@
         }
 
         .hero-content p {
-            font-size: 15px;
-            color: #888;
-            margin-bottom: 30px;
-            max-width: 450px;
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 480px;
+            line-height: 1.6;
         }
 
         .hero-buttons {
             display: flex;
             gap: 15px;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .btn-primary {
             background-color: var(--sage-accent);
             color: #FFFFFF;
-            padding: 12px 28px;
-            border-radius: 25px;
-            font-weight: 500;
-            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
             box-shadow: var(--box-shadow);
+            transition: transform 0.2s ease;
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--text-main);
-            padding: 12px 28px;
-            border-radius: 25px;
-            font-weight: 500;
-            text-decoration: none;
-            border: 1px solid var(--sage-accent);
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 2px solid var(--sage-accent);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
         }
 
         .reviews-badge {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .stars {
@@ -258,55 +302,323 @@
         .hero-image-container {
             display: flex;
             justify-content: center;
-            padding-top: 20px;
         }
 
         .hero-main-img {
             width: 100%;
-            max-width: 400px;
-            height: 480px;
+            max-width: 420px;
+            height: 520px;
             object-fit: cover;
-            border-radius: 190px 190px 20px 20px;
+            border-radius: 210px 210px 20px 20px;
             box-shadow: var(--box-shadow);
-            border: 6px solid var(--bg-main);
-            transition: border-color 0.3s ease;
+            border: 6px solid var(--bg-card);
+            transition: border-color 0.4s ease;
         }
 
-        @media (max-width: 900px) {
-            .hero {
+        .wave-shape {
+            background-color: var(--bg-card);
+            height: 90px;
+            width: 100%;
+            border-radius: 100% 100% 0 0 / 50px 50px 0 0;
+            margin-top: -40px;
+            transition: background-color 0.4s ease;
+        }
+
+        /* ==========================================================================
+           7. MAIN SERVICES & BOOKING SECTION
+           ========================================================================== */
+        .main-section {
+            background-color: var(--bg-card);
+            padding: 40px 8% 90px 8%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            transition: background-color 0.4s ease;
+        }
+
+        .section-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pink-accent);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .services-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-main);
+            border-radius: 18px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, background-color 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h4 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .price-tag {
+            font-weight: 700;
+            color: var(--sage-accent);
+            font-size: 15px;
+            background: var(--bg-card);
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+            transition: background-color 0.4s ease;
+        }
+
+        /* Booking Sidebar Form */
+        .booking-sidebar {
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: var(--box-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            transition: background-color 0.4s ease;
+        }
+
+        .booking-sidebar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            font-size: 14px;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.3s ease, background-color 0.4s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--sage-accent);
+        }
+
+        .submit-booking {
+            width: 100%;
+            background-color: var(--sage-accent);
+            color: #FFFFFF;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        .submit-booking:hover {
+            opacity: 0.9;
+        }
+
+        .booking-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+
+        /* ==========================================================================
+           8. GALLERY SECTION
+           ========================================================================== */
+        .gallery-section {
+            background-color: var(--bg-main);
+            padding: 90px 8%;
+            text-align: center;
+            transition: background-color 0.4s ease;
+        }
+
+        .gallery-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.08);
+        }
+
+        /* ==========================================================================
+           9. FEATURES BAR & FOOTER
+           ========================================================================== */
+        .features-bar {
+            background-color: var(--sage-light);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 45px 8%;
+            gap: 25px;
+            text-align: center;
+            transition: background-color 0.4s ease;
+        }
+
+        .feature-item h5 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #2D3724;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: #3E4B33;
+        }
+
+        footer {
+            background-color: var(--sage-accent);
+            color: #FFFFFF;
+            padding: 55px 8% 35px 8%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            padding-bottom: 35px;
+            margin-bottom: 35px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            background: rgba(255,255,255,0.25);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .copyright {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* ==========================================================================
+           10. RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero, .main-section, .gallery-grid, .features-bar {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
-            .hero-buttons, .reviews-badge {
-                justify-content: center;
-            }
-            .hero-content p {
-                margin: 0 auto 30px auto;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
             .nav-links {
                 display: none;
+            }
+            .hero-content h1 {
+                font-size: 40px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Announcement Bar -->
     <div class="announcement-bar">
         🎀 BOOK YOUR APPOINTMENT TODAY & FEEL YOUR BEST 🎀
     </div>
 
-    <!-- Navbar -->
+    <!-- Navigation Bar -->
     <nav>
         <a href="#" class="logo">
             🎀 Luxe Locks <span style="font-size:10px; font-weight:300;">HAIR STUDIO +</span>
         </a>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Book Now</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#book">Book Now</a></li>
         </ul>
 
+        <!-- Dark/Light Mode Switch -->
         <div class="theme-switch-wrapper">
             <span>Light</span>
             <label class="theme-switch" for="checkbox">
@@ -316,10 +628,10 @@
             <span>Dark</span>
         </div>
 
-        <a href="#" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">Book Now</a>
+        <a href="#book" class="btn-primary" style="padding: 10px 20px; font-size: 13px;">Book Now</a>
     </nav>
 
-    <!-- Floating Fun Bubbles Nav -->
+    <!-- Floating Fun Action Bubbles (Home, Styles, Gallery, Book) -->
     <div class="floating-bubbles-nav">
         <a href="#" class="bubble-btn">Home</a>
         <a href="#services" class="bubble-btn">Styles</a>
@@ -327,15 +639,15 @@
         <a href="#book" class="bubble-btn">Book</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Verified Black Woman Braids Image -->
     <section class="hero">
         <div class="hero-content">
             <h3>Beauty. Confidence. You. 🤍</h3>
             <h1>Where Beauty Meets <span>Confidence</span> 🎀</h1>
-            <p>Luxury hair care services designed to make you look and feel your absolute best.</p>
+            <p>Luxury braids, custom wig units, and immaculate installations designed for the modern South African woman who values style, neatness, and luxury.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn-primary">Book Your Appointment 🎀</a>
-                <a href="#" class="btn-secondary">View Services</a>
+                <a href="#book" class="btn-primary">Book Your Appointment 🎀</a>
+                <a href="#services" class="btn-secondary">View Services</a>
             </div>
             <div class="reviews-badge">
                 <div class="stars">★★★★★</div>
@@ -343,21 +655,162 @@
             </div>
         </div>
         <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800" 
-                 alt="Beautiful Black woman with styled braids" 
+            <!-- Guaranteed High-Quality Photo of a Black Woman with Braids -->
+            <img src="https://images.unsplash.com/photo-1584297091926-9eb39ecd247b?auto=format&fit=crop&q=80&w=800" 
+                 alt="Stunning Black woman with knotless braids" 
                  class="hero-main-img">
         </div>
     </section>
 
+    <div class="wave-shape"></div>
+
+    <!-- Services & Extended Style List Section -->
+    <section class="main-section" id="services">
+        <div class="services-container">
+            <div class="section-title">Our Menu 🤍</div>
+            <div class="services-header">
+                <h2>Explore Our Signature Hairstyles 🎀</h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- 1. Knotless Braids -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1605980776563-430932bb0b3a?auto=format&fit=crop&q=80&w=600" alt="Knotless Braids">
+                    <h4>Knotless Braids</h4>
+                    <p>Lightweight, natural, pain-free tension finish.</p>
+                    <div class="price-tag">R750 🎀</div>
+                </div>
+                <!-- 2. Goddess Braids -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=600" alt="Goddess Braids">
+                    <h4>Goddess Braids</h4>
+                    <p>Boho-chic curly ends with razor-sharp parting.</p>
+                    <div class="price-tag">R850 🎀</div>
+                </div>
+                <!-- 3. Straight Back Cornrows -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600" alt="Straight Back">
+                    <h4>Straight Back Cornrows</h4>
+                    <p>Sleek, neat, and long-lasting classic look.</p>
+                    <div class="price-tag">R400 🎀</div>
+                </div>
+                <!-- 4. Straight Up (Stitch Cornrows) -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b9d6f212e3e5?auto=format&fit=crop&q=80&w=600" alt="Straight Up">
+                    <h4>Straight Up / Stitch Lines</h4>
+                    <p>Precise clean lines for an iconic look.</p>
+                    <div class="price-tag">R450 🎀</div>
+                </div>
+                <!-- 5. Wig Installation -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=600" alt="Wig Installation">
+                    <h4>Wig Installation</h4>
+                    <p>Melts, custom hairline styling & flawless fit.</p>
+                    <div class="price-tag">R600 🎀</div>
+                </div>
+                <!-- 6. Pintail Installation / Quickweave -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=600" alt="Pintail Installation">
+                    <h4>Pintail / Quickweave</h4>
+                    <p>Sleek molded crown finish & bonding.</p>
+                    <div class="price-tag">R550 🎀</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Booking Form Sidebar -->
+        <div class="booking-sidebar" id="book">
+            <h3>Book Your Appointment 🎀</h3>
+            <form onsubmit="event.preventDefault(); alert('Booking request sent successfully!');">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone Number (e.g., 071...)" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Select Your Style</option>
+                        <option value="knotless">Knotless Braids (R750)</option>
+                        <option value="goddess">Goddess Braids (R850)</option>
+                        <option value="straight-back">Straight Back Cornrows (R400)</option>
+                        <option value="straight-up">Straight Up / Stitch (R450)</option>
+                        <option value="wig">Wig Installation (R600)</option>
+                        <option value="pintail">Pintail Installation (R550)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" required>
+                </div>
+                <button type="submit" class="submit-booking">Confirm Booking 🎀</button>
+                <div class="booking-note">Instant confirmation via WhatsApp.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Extended Photo Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <h2>Our Salon Gallery 📸</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1605980776563-430932bb0b3a?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1584297091926-9eb39ecd247b?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <section class="features-bar">
+        <div class="feature-item">
+            <h5>Premium Products</h5>
+            <p>Top-tier edge controls and gels used.</p>
+        </div>
+        <div class="feature-item">
+            <h5>Skilled Stylists</h5>
+            <p>Neat, professional, and painless hands.</p>
+        </div>
+        <div class="feature-item">
+            <h5>Cozy Studio</h5>
+            <p>Relaxing environment made for you.</p>
+        </div>
+        <div class="feature-item">
+            <h5>100% Satisfaction</h5>
+            <p>Your look is our utmost priority.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Luxe Locks HAIR STUDIO +</div>
+            <div class="social-icons">
+                <a href="#">IG</a>
+                <a href="#">TK</a>
+                <a href="#">WA</a>
+            </div>
+        </div>
+        <div class="copyright">
+            Thank you for supporting small & local 🤍 | Built with advanced custom code.
+        </div>
+    </footer>
+
+    <!-- JavaScript Handling Theme Toggling -->
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         const currentTheme = localStorage.getItem('theme');
+        
         if (currentTheme) {
             document.body.classList.add(currentTheme);
             if (currentTheme === 'dark-mode') {
                 toggleSwitch.checked = true;
             }
         }
+
         function toggleTheme() {
             if (toggleSwitch.checked) {
                 document.body.classList.add('dark-mode');
@@ -368,6 +821,5 @@
             }    
         }
     </script>
-
 </body>
 </html>
