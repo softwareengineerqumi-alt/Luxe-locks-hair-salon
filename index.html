@@ -1,2435 +1,609 @@
-/* ===============================
-   LUXE LOCKS
-   STYLE.CSS
-================================== */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:'Poppins',sans-serif;
-
-background:#FFF8F1;
-
-color:#3d3d3d;
-
-overflow-x:hidden;
-
-transition:.5s;
-
-}
-
-/* Navigation */
-
-header{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:20px 80px;
-
-background:rgba(255,255,255,.75);
-
-backdrop-filter:blur(18px);
-
-z-index:999;
-
-box-shadow:0 10px 30px rgba(0,0,0,.06);
-
-}
-
-.logo{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:38px;
-
-font-weight:700;
-
-color:#4E5E44;
-
-}
-
-nav{
-
-display:flex;
-
-gap:28px;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-font-size:17px;
-
-color:#555;
-
-font-weight:500;
-
-padding:12px 24px;
-
-background:white;
-
-border-radius:50px;
-
-transition:.4s;
-
-animation:bubble 6s ease-in-out infinite;
-
-}
-
-nav a:hover{
-
-background:#DCC8A8;
-
-transform:translateY(-5px);
-
-}
-
-.header-buttons{
-
-display:flex;
-
-gap:15px;
-
-}
-
-.book-btn{
-
-background:#CDB58B;
-
-color:white;
-
-border:none;
-
-padding:14px 30px;
-
-border-radius:40px;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-.book-btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 15px 35px rgba(205,181,139,.45);
-
-}
-
-#themeToggle{
-
-width:55px;
-
-height:55px;
-
-border:none;
-
-border-radius:50%;
-
-background:#FFEFCF;
-
-cursor:pointer;
-
-font-size:20px;
-
-transition:.4s;
-
-}
-
-#themeToggle:hover{
-
-transform:rotate(180deg);
-
-}
-
-/* Hero */
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:160px 90px 80px;
-
-gap:70px;
-
-}
-
-.hero-text{
-
-width:50%;
-
-}
-
-.subtitle{
-
-letter-spacing:5px;
-
-text-transform:uppercase;
-
-color:#B79A70;
-
-margin-bottom:20px;
-
-}
-
-.hero h1{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:75px;
-
-line-height:1.1;
-
-margin-bottom:25px;
-
-}
-
-.hero span{
-
-color:#73815D;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-line-height:1.8;
-
-margin-bottom:35px;
-
-}
-
-.hero-buttons{
-
-display:flex;
-
-gap:20px;
-
-}
-
-.hero-buttons button{
-
-padding:16px 36px;
-
-border:none;
-
-border-radius:40px;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:.4s;
-
-background:#73815D;
-
-color:white;
-
-}
-
-.hero-buttons button:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-}
-
-.secondary{
-
-background:white!important;
-
-color:#73815D!important;
-
-border:2px solid #73815D!important;
-
-}
-
-.hero-image{
-
-width:45%;
-
-display:flex;
-
-justify-content:center;
-
-}
-
-.hero-image img{
-
-width:100%;
-
-border-radius:40px;
-
-box-shadow:0 25px 70px rgba(0,0,0,.15);
-
-transition:.5s;
-
-}
-
-.hero-image img:hover{
-
-transform:scale(1.03);
-
-}
-
-/* Floating bubble animation */
-
-@keyframes bubble{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-25%{
-
-transform:translateY(-10px);
-
-}
-
-50%{
-
-transform:translateY(6px);
-
-}
-
-75%{
-
-transform:translateY(-8px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
-}
-
-/* ===================================
-   SERVICES SECTION
-=================================== */
-
-.services{
-
-padding:120px 90px;
-
-background:#fffdf8;
-
-}
-
-.services h2{
-
-text-align:center;
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:55px;
-
-margin-bottom:70px;
-
-color:#4E5E44;
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:40px;
-
-}
-
-.card{
-
-background:rgba(255,255,255,.75);
-
-backdrop-filter:blur(20px);
-
-border-radius:35px;
-
-overflow:hidden;
-
-box-shadow:0 20px 40px rgba(0,0,0,.08);
-
-transition:.5s;
-
-position:relative;
-
-}
-
-.card::before{
-
-content:"";
-
-position:absolute;
-
-top:-120%;
-
-left:-50%;
-
-width:200%;
-
-height:200%;
-
-background:linear-gradient(45deg,
-transparent,
-rgba(255,255,255,.35),
-transparent);
-
-transform:rotate(25deg);
-
-transition:.8s;
-
-}
-
-.card:hover::before{
-
-top:120%;
-
-}
-
-.card:hover{
-
-transform:translateY(-15px);
-
-box-shadow:0 35px 70px rgba(0,0,0,.15);
-
-}
-
-.card img{
-
-width:100%;
-
-height:320px;
-
-object-fit:cover;
-
-transition:.6s;
-
-}
-
-.card:hover img{
-
-transform:scale(1.08);
-
-}
-
-.card h3{
-
-font-size:28px;
-
-padding:25px 25px 10px;
-
-font-family:'Cormorant Garamond',serif;
-
-color:#55644B;
-
-}
-
-.card p{
-
-padding:0 25px;
-
-color:#666;
-
-line-height:1.8;
-
-}
-
-.card h4{
-
-padding:25px;
-
-font-size:24px;
-
-color:#C9A86A;
-
-}
-
-/* ===================================
-BOOKING SECTION
-=================================== */
-
-.booking{
-
-padding:120px 90px;
-
-background:linear-gradient(135deg,#FFF8F2,#F4F7EC);
-
-}
-
-.booking h2{
-
-text-align:center;
-
-font-size:55px;
-
-font-family:'Cormorant Garamond',serif;
-
-margin-bottom:50px;
-
-color:#4E5E44;
-
-}
-
-.booking form{
-
-max-width:700px;
-
-margin:auto;
-
-display:flex;
-
-flex-direction:column;
-
-gap:25px;
-
-background:rgba(255,255,255,.65);
-
-padding:50px;
-
-border-radius:35px;
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 25px 60px rgba(0,0,0,.08);
-
-}
-
-.booking input,
-
-.booking select{
-
-padding:18px;
-
-border:none;
-
-border-radius:18px;
-
-background:#fff;
-
-font-size:17px;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-.booking input:focus,
-
-.booking select:focus{
-
-box-shadow:0 0 15px rgba(116,130,95,.35);
-
-}
-
-.booking button{
-
-padding:18px;
-
-border:none;
-
-border-radius:30px;
-
-background:#73815D;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-.booking button:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 18px 40px rgba(115,129,93,.35);
-
-}
-
-/* ===================================
-FOOTER
-=================================== */
-
-footer{
-
-padding:70px;
-
-background:#4E5E44;
-
-text-align:center;
-
-color:white;
-
-}
-
-footer h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:42px;
-
-margin-bottom:15px;
-
-}
-
-footer p{
-
-opacity:.8;
-
-letter-spacing:2px;
-
-}
-
-/* ===================================
-FLOATING BOWS
-=================================== */
-
-.bow{
-
-position:fixed;
-
-font-size:22px;
-
-pointer-events:none;
-
-animation:floatBow linear forwards;
-
-opacity:.8;
-
-z-index:9999;
-
-}
-
-@keyframes floatBow{
-
-0%{
-
-transform:translateY(-100px) rotate(0deg);
-
-opacity:0;
-
-}
-
-10%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(120vh) rotate(360deg);
-
-opacity:0;
-
-}
-
-}
-
-/* ===================================
-GLITTER STARS
-=================================== */
-
-.star{
-
-position:fixed;
-
-width:5px;
-
-height:5px;
-
-background:white;
-
-border-radius:50%;
-
-pointer-events:none;
-
-box-shadow:
-
-0 0 10px white,
-
-0 0 20px pink,
-
-0 0 30px gold;
-
-animation:twinkle .9s linear forwards;
-
-}
-
-@keyframes twinkle{
-
-0%{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:scale(0);
-
-opacity:0;
-
-}
-
-}
-
-/* ===================================
-   DARK MODE
-=================================== */
-
-body.dark-mode{
-
-background:#11131A;
-
-color:#F7F3F0;
-
-transition:.6s ease;
-
-}
-
-body.dark-mode header{
-
-background:rgba(20,20,30,.75);
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 15px 40px rgba(0,0,0,.45);
-
-}
-
-body.dark-mode .logo{
-
-color:#F6D4FF;
-
-text-shadow:
-0 0 10px #ffb8ff,
-0 0 20px #d5a6ff;
-
-}
-
-body.dark-mode nav a{
-
-background:rgba(255,255,255,.08);
-
-color:white;
-
-border:1px solid rgba(255,255,255,.15);
-
-}
-
-body.dark-mode nav a:hover{
-
-background:linear-gradient(135deg,#FFB3E6,#C8A2FF);
-
-color:#111;
-
-box-shadow:
-0 0 20px rgba(255,182,255,.5);
-
-}
-
-body.dark-mode .hero span{
-
-color:#F9B5D0;
-
-}
-
-body.dark-mode .services{
-
-background:#191B24;
-
-}
-
-body.dark-mode .booking{
-
-background:linear-gradient(135deg,#191B24,#232633);
-
-}
-
-body.dark-mode footer{
-
-background:#0C0D12;
-
-}
-
-/* ===================================
-GLITTER BACKGROUND
-=================================== */
-
-.glitter{
-
-position:fixed;
-
-width:4px;
-
-height:4px;
-
-border-radius:50%;
-
-background:white;
-
-pointer-events:none;
-
-animation:glitterFall linear forwards;
-
-box-shadow:
-
-0 0 8px white,
-
-0 0 15px pink,
-
-0 0 20px gold;
-
-}
-
-@keyframes glitterFall{
-
-0%{
-
-transform:translateY(-20px);
-
-opacity:0;
-
-}
-
-15%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(105vh);
-
-opacity:0;
-
-}
-
-}
-
-/* ===================================
-BUTTON GLOW
-=================================== */
-
-button{
-
-transition:.35s;
-
-}
-
-button:hover{
-
-box-shadow:
-
-0 0 15px rgba(255,215,180,.5),
-
-0 0 35px rgba(255,170,255,.4);
-
-}
-
-/* ===================================
-IMAGES
-=================================== */
-
-img{
-
-transition:.6s;
-
-}
-
-img:hover{
-
-filter:brightness(1.05);
-
-}
-
-/* ===================================
-SECTION ANIMATION
-=================================== */
-
-section{
-
-opacity:0;
-
-transform:translateY(70px);
-
-animation:fadeUp .9s forwards;
-
-}
-
-@keyframes fadeUp{
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-/* ===================================
-CUSTOM SCROLLBAR
-=================================== */
-
-::-webkit-scrollbar{
-
-width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#F8F5EF;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#D2B48C;
-
-border-radius:30px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#B89564;
-
-}
-
-body.dark-mode::-webkit-scrollbar-track{
-
-background:#171923;
-
-}
-
-body.dark-mode::-webkit-scrollbar-thumb{
-
-background:#C69CFF;
-
-}
-
-/* ===================================
-RESPONSIVE DESIGN
-=================================== */
-
-@media(max-width:1000px){
-
-header{
-
-padding:20px 30px;
-
-flex-wrap:wrap;
-
-}
-
-nav{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-margin-top:20px;
-
-}
-
-.hero{
-
-flex-direction:column;
-
-padding:160px 30px 80px;
-
-}
-
-.hero-text{
-
-width:100%;
-
-text-align:center;
-
-}
-
-.hero-image{
-
-width:100%;
-
-margin-top:40px;
-
-}
-
-.hero h1{
-
-font-size:50px;
-
-}
-
-.services{
-
-padding:90px 30px;
-
-}
-
-.booking{
-
-padding:90px 30px;
-
-}
-
-.cards{
-
-grid-template-columns:1fr;
-
-}
-
-.booking form{
-
-padding:35px;
-
-}
-
-}
-
-/* ======================================
-   LUXE LOCKS
-   script.js
-====================================== */
-
-const themeToggle = document.getElementById("themeToggle");
-
-themeToggle.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark-mode");
-
-    if(document.body.classList.contains("dark-mode")){
-
-        themeToggle.innerHTML="☀️";
-
-    }else{
-
-        themeToggle.innerHTML="🌙";
-
-    }
-
-});
-
-/* ======================================
-   FLOATING BOWS
-====================================== */
-
-function createBow(){
-
-    const bow=document.createElement("div");
-
-    bow.classList.add("bow");
-
-    bow.innerHTML="🎀";
-
-    bow.style.left=Math.random()*100+"vw";
-
-    bow.style.animationDuration=(6+Math.random()*6)+"s";
-
-    bow.style.fontSize=(18+Math.random()*15)+"px";
-
-    document.body.appendChild(bow);
-
-    setTimeout(()=>{
-
-        bow.remove();
-
-    },12000);
-
-}
-
-setInterval(createBow,900);
-
-/* ======================================
-   CURSOR SPARKLES
-====================================== */
-
-document.addEventListener("mousemove",(e)=>{
-
-    const sparkle=document.createElement("div");
-
-    sparkle.classList.add("star");
-
-    sparkle.style.left=e.pageX+"px";
-
-    sparkle.style.top=e.pageY+"px";
-
-    document.body.appendChild(sparkle);
-
-    setTimeout(()=>{
-
-        sparkle.remove();
-
-    },900);
-
-});
-
-/* ======================================
-   GLITTER FOR DARK MODE
-====================================== */
-
-function createGlitter(){
-
-    if(!document.body.classList.contains("dark-mode")) return;
-
-    const glitter=document.createElement("div");
-
-    glitter.classList.add("glitter");
-
-    glitter.style.left=Math.random()*window.innerWidth+"px";
-
-    glitter.style.animationDuration=(4+Math.random()*4)+"s";
-
-    document.body.appendChild(glitter);
-
-    setTimeout(()=>{
-
-        glitter.remove();
-
-    },8000);
-
-}
-
-setInterval(createGlitter,180);
-
-/* ======================================
-   HERO BUTTON EFFECT
-====================================== */
-
-const buttons=document.querySelectorAll("button");
-
-buttons.forEach(button=>{
-
-button.addEventListener("mouseenter",()=>{
-
-button.style.transform="scale(1.05)";
-
-});
-
-button.addEventListener("mouseleave",()=>{
-
-button.style.transform="scale(1)";
-
-});
-
-});
-
-
-/* ======================================
-   SMOOTH SCROLLING
-====================================== */
-
-document.querySelectorAll('nav a').forEach(link => {
-
-link.addEventListener('click', function(e){
-
-e.preventDefault();
-
-const section = document.querySelector(this.getAttribute("href"));
-
-if(section){
-
-section.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-});
-
-});
-
-/* ======================================
-   CARD FADE-IN ANIMATION
-====================================== */
-
-const observer = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0px)";
-
-}
-
-});
-
-},
-
-{
-
-threshold:.25
-
-});
-
-document.querySelectorAll(".card").forEach(card=>{
-
-card.style.opacity="0";
-
-card.style.transform="translateY(70px)";
-
-card.style.transition=".8s";
-
-observer.observe(card);
-
-});
-
-/* ======================================
-   FLOATING NAVIGATION BUBBLES
-====================================== */
-
-const navButtons=document.querySelectorAll("nav a");
-
-navButtons.forEach(button=>{
-
-let x=Math.random()*10;
-
-let y=Math.random()*10;
-
-setInterval(()=>{
-
-x+=(Math.random()-0.5)*8;
-
-y+=(Math.random()-0.5)*8;
-
-button.style.transform=`translate(${x}px,${y}px)`;
-
-},2500);
-
-});
-
-/* ======================================
-   BOOK NOW POPUP
-====================================== */
-
-const bookButtons=document.querySelectorAll(".book-btn");
-
-bookButtons.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-alert("✨ Welcome to Luxe Locks! Booking system coming soon.");
-
-});
-
-});
-
-/* ======================================
-   SERVICE CARD GLOW
-====================================== */
-
-const cards=document.querySelectorAll(".card");
-
-cards.forEach(card=>{
-
-card.addEventListener("mouseenter",()=>{
-
-card.style.boxShadow=
-
-"0 20px 60px rgba(255,182,193,.45), 0 0 35px rgba(255,215,0,.2)";
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.boxShadow="0 20px 40px rgba(0,0,0,.08)";
-
-});
-
-});
-
-/* ======================================
-   IMAGE PARALLAX
-====================================== */
-
-window.addEventListener("scroll",()=>{
-
-const image=document.querySelector(".hero-image img");
-
-if(image){
-
-let offset=window.scrollY*0.15;
-
-image.style.transform=`translateY(${offset}px)`;
-
-}
-
-});
-
-/* ======================================
-   LOGO SHIMMER
-====================================== */
-
-const logo=document.querySelector(".logo");
-
-setInterval(()=>{
-
-logo.animate([
-
-{opacity:1},
-
-{opacity:.6},
-
-{opacity:1}
-
-],{
-
-duration:2000
-
-});
-
-},4000);
-
-/* ======================================
-   BUTTON RIPPLE EFFECT
-====================================== */
-
-buttons.forEach(button=>{
-
-button.addEventListener("click",(e)=>{
-
-const ripple=document.createElement("span");
-
-const size=Math.max(button.clientWidth,button.clientHeight);
-
-ripple.style.width=size+"px";
-
-ripple.style.height=size+"px";
-
-ripple.style.left=e.offsetX-size/2+"px";
-
-ripple.style.top=e.offsetY-size/2+"px";
-
-ripple.classList.add("ripple");
-
-button.appendChild(ripple);
-
-setTimeout(()=>{
-
-ripple.remove();
-
-},600);
-
-});
-
-});
-
-/* ======================================
-   LOADING SCREEN
-====================================== */
-
-window.addEventListener("load",()=>{
-
-const loader=document.createElement("div");
-
-loader.id="loader";
-
-loader.innerHTML=`
-
-<div class="loader-content">
-
-<h1>🎀 Luxe Locks</h1>
-
-<p>Beauty Meets Confidence</p>
-
-</div>
-
-`;
-
-document.body.appendChild(loader);
-
-setTimeout(()=>{
-
-loader.style.opacity="0";
-
-setTimeout(()=>{
-
-loader.remove();
-
-},1000);
-
-},1800);
-
-});
-
-/* ======================================
-   SCROLL TO TOP BUTTON
-====================================== */
-
-const topButton=document.createElement("button");
-
-topButton.innerHTML="↑";
-
-topButton.id="topButton";
-
-document.body.appendChild(topButton);
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>500){
-
-topButton.style.opacity="1";
-
-topButton.style.pointerEvents="all";
-
-}else{
-
-topButton.style.opacity="0";
-
-topButton.style.pointerEvents="none";
-
-}
-
-});
-
-topButton.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-});
-
-/* ======================================
-   FLOATING FIREFLIES
-====================================== */
-
-function createFirefly(){
-
-const firefly=document.createElement("div");
-
-firefly.classList.add("firefly");
-
-firefly.style.left=Math.random()*100+"vw";
-
-firefly.style.top=Math.random()*100+"vh";
-
-firefly.style.animationDuration=(4+Math.random()*6)+"s";
-
-document.body.appendChild(firefly);
-
-setTimeout(()=>{
-
-firefly.remove();
-
-},9000);
-
-}
-
-setInterval(createFirefly,700);
-
-/* ======================================
-   HERO TEXT TYPING EFFECT
-====================================== */
-
-const subtitle=document.querySelector(".subtitle");
-
-if(subtitle){
-
-const text=subtitle.innerText;
-
-subtitle.innerHTML="";
-
-let i=0;
-
-function typeText(){
-
-if(i<text.length){
-
-subtitle.innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typeText,80);
-
-}
-
-}
-
-typeText();
-
-}
-
-/* ======================================
-   FLOATING WHATSAPP BUTTON
-====================================== */
-
-const whatsapp=document.createElement("a");
-
-whatsapp.href="https://wa.me/27602694803";
-
-whatsapp.target="_blank";
-
-whatsapp.id="whatsappButton";
-
-whatsapp.innerHTML="💬";
-
-document.body.appendChild(whatsapp);
-
-/* ======================================
-   RANDOM SPARKLE BURSTS
-====================================== */
-
-function sparkleBurst(){
-
-for(let i=0;i<10;i++){
-
-const sparkle=document.createElement("div");
-
-sparkle.classList.add("star");
-
-sparkle.style.left=Math.random()*window.innerWidth+"px";
-
-sparkle.style.top=Math.random()*window.innerHeight+"px";
-
-document.body.appendChild(sparkle);
-
-setTimeout(()=>{
-
-sparkle.remove();
-
-},900);
-
-}
-
-}
-
-setInterval(sparkleBurst,5000);
-
-/* ======================================
-   LOGO ROTATION
-====================================== */
-
-logo.addEventListener("mouseenter",()=>{
-
-logo.animate([
-
-{transform:"rotate(0deg)"},
-
-{transform:"rotate(8deg)"},
-
-{transform:"rotate(-8deg)"},
-
-{transform:"rotate(0deg)"}
-
-],{
-
-duration:700
-
-});
-
-});
-
-/* ======================================
-   TESTIMONIAL SLIDER
-====================================== */
-
-const reviews = document.querySelectorAll(".review-card");
-
-let currentReview = 0;
-
-function showReview(){
-
-reviews.forEach((review,index)=>{
-
-review.style.display=index===currentReview?"block":"none";
-
-});
-
-currentReview++;
-
-if(currentReview>=reviews.length){
-
-currentReview=0;
-
-}
-
-}
-
-if(reviews.length>0){
-
-showReview();
-
-setInterval(showReview,5000);
-
-}
-
-/* ======================================
-   GALLERY LIGHTBOX
-====================================== */
-
-const galleryImages=document.querySelectorAll(".gallery img");
-
-galleryImages.forEach(image=>{
-
-image.addEventListener("click",()=>{
-
-const overlay=document.createElement("div");
-
-overlay.id="lightbox";
-
-const large=document.createElement("img");
-
-large.src=image.src;
-
-overlay.appendChild(large);
-
-document.body.appendChild(overlay);
-
-overlay.addEventListener("click",()=>{
-
-overlay.remove();
-
-});
-
-});
-
-});
-
-/* ======================================
-   HEART FAVORITES
-====================================== */
-
-document.querySelectorAll(".card").forEach(card=>{
-
-const heart=document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML="♡";
-
-card.appendChild(heart);
-
-heart.addEventListener("click",(e)=>{
-
-e.stopPropagation();
-
-if(heart.innerHTML==="♡"){
-
-heart.innerHTML="♥";
-
-heart.style.color="#ff4f8b";
-
-}else{
-
-heart.innerHTML="♡";
-
-heart.style.color="#999";
-
-}
-
-});
-
-});
-
-/* ======================================
-   LIVE SERVICE SEARCH
-====================================== */
-
-const search=document.getElementById("serviceSearch");
-
-if(search){
-
-search.addEventListener("keyup",()=>{
-
-const value=search.value.toLowerCase();
-
-cards.forEach(card=>{
-
-const title=card.querySelector("h3").innerText.toLowerCase();
-
-if(title.includes(value)){
-
-card.style.display="block";
-
-}else{
-
-card.style.display="none";
-
-}
-
-});
-
-});
-
-}
-
-/* ======================================
-   BOOKING SUCCESS MESSAGE
-====================================== */
-
-const bookingForm=document.querySelector(".booking form");
-
-if(bookingForm){
-
-bookingForm.addEventListener("submit",(e)=>{
-
-e.preventDefault();
-
-const popup=document.createElement("div");
-
-popup.id="successPopup";
-
-popup.innerHTML="✨ Appointment Request Sent Successfully!";
-
-document.body.appendChild(popup);
-
-setTimeout(()=>{
-
-popup.remove();
-
-},3500);
-
-bookingForm.reset();
-
-});
-
-}
-
-/* ======================================
-   MUSIC TOGGLE
-====================================== */
-
-const music=new Audio("assets/relax.mp3");
-
-music.loop=true;
-
-const musicButton=document.createElement("button");
-
-musicButton.id="musicButton";
-
-musicButton.innerHTML="🎵";
-
-document.body.appendChild(musicButton);
-
-let playing=false;
-
-musicButton.addEventListener("click",()=>{
-
-if(!playing){
-
-music.play();
-
-musicButton.innerHTML="🔇";
-
-playing=true;
-
-}else{
-
-music.pause();
-
-musicButton.innerHTML="🎵";
-
-playing=false;
-
-}
-
-});
-
-/* ======================================
-   HERO IMAGE FLOAT
-====================================== */
-
-const heroImage=document.querySelector(".hero-image");
-
-if(heroImage){
-
-setInterval(()=>{
-
-heroImage.animate([
-
-{transform:"translateY(0px)"},
-
-{transform:"translateY(-12px)"},
-
-{transform:"translateY(0px)"}
-
-],{
-
-duration:3500,
-
-iterations:1
-
-});
-
-},3500);
-
-}
-
-/* ======================================
-   ANIMATED STATISTICS COUNTER
-====================================== */
-
-const counters = document.querySelectorAll(".counter");
-
-const counterObserver = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-const counter = entry.target;
-
-const target = Number(counter.dataset.target);
-
-let count = 0;
-
-const speed = target/120;
-
-const update = ()=>{
-
-count += speed;
-
-if(count < target){
-
-counter.innerText = Math.floor(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-}
-
-update();
-
-counterObserver.unobserve(counter);
-
-}
-
-});
-
-});
-
-counters.forEach(counter=>{
-
-counterObserver.observe(counter);
-
-});
-
-/* ======================================
-   WELCOME MESSAGE
-====================================== */
-
-window.setTimeout(()=>{
-
-const welcome=document.createElement("div");
-
-welcome.id="welcomeMessage";
-
-welcome.innerHTML="✨ Welcome to Luxe Locks!";
-
-document.body.appendChild(welcome);
-
-setTimeout(()=>{
-
-welcome.style.opacity="0";
-
-setTimeout(()=>{
-
-welcome.remove();
-
-},1000);
-
-},3000);
-
-},1500);
-
-/* ======================================
-   SCROLL PROGRESS BAR
-====================================== */
-
-const progress=document.createElement("div");
-
-progress.id="progressBar";
-
-document.body.appendChild(progress);
-
-window.addEventListener("scroll",()=>{
-
-const totalHeight=document.documentElement.scrollHeight-window.innerHeight;
-
-const progressHeight=(window.pageYOffset/totalHeight)*100;
-
-progress.style.width=progressHeight+"%";
-
-});
-
-/* ======================================
-   SIMPLE CONFETTI EFFECT
-====================================== */
-
-function confetti(){
-
-for(let i=0;i<80;i++){
-
-const piece=document.createElement("div");
-
-piece.classList.add("confetti");
-
-piece.style.left=Math.random()*100+"vw";
-
-piece.style.backgroundColor=
-
-["#F7B5D4","#CDB58B","#CFE7C1","#FFFFFF","#FFD700"][Math.floor(Math.random()*5)];
-
-piece.style.animationDuration=(2+Math.random()*3)+"s";
-
-document.body.appendChild(piece);
-
-setTimeout(()=>{
-
-piece.remove();
-
-},5000);
-
-}
-
-}
-
-/* Launch confetti after booking */
-
-if(bookingForm){
-
-bookingForm.addEventListener("submit",()=>{
-
-confetti();
-
-});
-
-}
-
-/* ======================================
-   LIVE CLOCK
-====================================== */
-
-const clock=document.createElement("div");
-
-clock.id="liveClock";
-
-document.body.appendChild(clock);
-
-function updateClock(){
-
-const now=new Date();
-
-clock.innerHTML=now.toLocaleTimeString([],{
-
-hour:'2-digit',
-
-minute:'2-digit'
-
-});
-
-}
-
-setInterval(updateClock,1000);
-
-updateClock();
-
-/* ======================================
-   RANDOM QUOTES
-====================================== */
-
-const quotes=[
-
-"Luxury starts with beautiful hair.",
-
-"Beauty is confidence made visible.",
-
-"Glow differently every day.",
-
-"Confidence begins at Luxe Locks.",
-
-"Every hairstyle tells a story."
-
-];
-
-const quote=document.createElement("div");
-
-quote.id="quoteBox";
-
-document.body.appendChild(quote);
-
-let quoteIndex=0;
-
-function changeQuote(){
-
-quote.innerHTML=quotes[quoteIndex];
-
-quoteIndex++;
-
-if(quoteIndex>=quotes.length){
-
-quoteIndex=0;
-
-}
-
-}
-
-changeQuote();
-
-setInterval(changeQuote,5000);
-
-/* ======================================
-   CUSTOM CURSOR GLOW
-====================================== */
-
-const cursor = document.querySelector(".cursor-glow");
-
-document.addEventListener("mousemove",(e)=>{
-
-if(cursor){
-
-cursor.style.left = e.clientX + "px";
-
-cursor.style.top = e.clientY + "px";
-
-}
-
-});
-
-/* ======================================
-   MAGNETIC BUTTON EFFECT
-====================================== */
-
-document.querySelectorAll("button").forEach(button=>{
-
-button.addEventListener("mousemove",(e)=>{
-
-const rect = button.getBoundingClientRect();
-
-const x = e.clientX - rect.left - rect.width/2;
-
-const y = e.clientY - rect.top - rect.height/2;
-
-button.style.transform=`translate(${x*0.15}px,${y*0.15}px)`;
-
-});
-
-button.addEventListener("mouseleave",()=>{
-
-button.style.transform="translate(0,0)";
-
-});
-
-});
-
-/* ======================================
-   SECTION FADE ANIMATION
-====================================== */
-
-const sections=document.querySelectorAll("section");
-
-const sectionObserver=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.animate([
-
-{
-
-opacity:0,
-
-transform:"translateY(80px)"
-
-},
-
-{
-
-opacity:1,
-
-transform:"translateY(0px)"
-
-}
-
-],{
-
-duration:900,
-
-fill:"forwards"
-
-});
-
-}
-
-});
-
-});
-
-sections.forEach(section=>{
-
-sectionObserver.observe(section);
-
-});
-
-/* ======================================
-   PARALLAX BACKGROUND
-====================================== */
-
-window.addEventListener("scroll",()=>{
-
-const y=window.scrollY;
-
-document.body.style.backgroundPositionY=-(y*0.2)+"px";
-
-});
-
-/* ======================================
-   NAVIGATION HIGHLIGHT
-====================================== */
-
-const navLinks=document.querySelectorAll("nav a");
-
-window.addEventListener("scroll",()=>{
-
-let current="";
-
-sections.forEach(section=>{
-
-const top=section.offsetTop-150;
-
-if(window.scrollY>=top){
-
-current=section.getAttribute("id");
-
-}
-
-});
-
-navLinks.forEach(link=>{
-
-link.classList.remove("active");
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-
-/* ======================================
-   SEASONAL MODE
-====================================== */
-
-const today=new Date();
-
-const month=today.getMonth()+1;
-
-if(month===12){
-
-setInterval(()=>{
-
-const snow=document.createElement("div");
-
-snow.innerHTML="❄";
-
-snow.style.position="fixed";
-
-snow.style.left=Math.random()*100+"vw";
-
-snow.style.top="-20px";
-
-snow.style.fontSize=(10+Math.random()*20)+"px";
-
-snow.style.pointerEvents="none";
-
-snow.style.animation="floatBow 8s linear";
-
-document.body.appendChild(snow);
-
-setTimeout(()=>{
-
-snow.remove();
-
-},8000);
-
-},400);
-
-}
-
-/* ======================================
-   RANDOM GLITTER FLASH
-====================================== */
-
-setInterval(()=>{
-
-document.body.animate([
-
-{
-
-filter:"brightness(1)"
-
-},
-
-{
-
-filter:"brightness(1.04)"
-
-},
-
-{
-
-filter:"brightness(1)"
-
-}
-
-],{
-
-duration:1200
-
-});
-
-},10000);
-
-/* ======================================
-   END OF PART 9
-====================================== */
-
-/* ======================================
-   PAGE FADE TRANSITIONS
-====================================== */
-
-window.addEventListener("beforeunload",()=>{
-
-document.body.style.opacity="0";
-
-});
-
-window.addEventListener("pageshow",()=>{
-
-document.body.style.opacity="1";
-
-});
-
-/* ======================================
-   MOBILE MENU
-====================================== */
-
-const menuButton=document.createElement("button");
-
-menuButton.id="menuButton";
-
-menuButton.innerHTML="☰";
-
-document.querySelector("header").prepend(menuButton);
-
-menuButton.addEventListener("click",()=>{
-
-const nav=document.querySelector("nav");
-
-nav.classList.toggle("show");
-
-});
-
-/* ======================================
-   HERO IMAGE ANIMATION
-====================================== */
-
-const hero=document.querySelector(".hero-image img");
-
-if(hero){
-
-hero.animate([
-
-{
-
-transform:"scale(.95)",
-
-opacity:0
-
-},
-
-{
-
-transform:"scale(1)",
-
-opacity:1
-
-}
-
-],{
-
-duration:1500,
-
-fill:"forwards",
-
-easing:"ease-out"
-
-});
-
-}
-
-/* ======================================
-   HERO TITLE GLOW
-====================================== */
-
-const title=document.querySelector(".hero h1");
-
-if(title){
-
-setInterval(()=>{
-
-title.animate([
-
-{
-
-textShadow:"0 0 0px transparent"
-
-},
-
-{
-
-textShadow:"0 0 18px rgba(255,192,203,.8)"
-
-},
-
-{
-
-textShadow:"0 0 0px transparent"
-
-}
-
-],{
-
-duration:2500
-
-});
-
-},5000);
-
-}
-
-/* ======================================
-   BOOKING BUTTON SUCCESS
-====================================== */
-
-const bookingButton=document.querySelector(".booking button");
-
-if(bookingButton){
-
-bookingButton.addEventListener("click",()=>{
-
-bookingButton.innerHTML="✔ Appointment Requested";
-
-bookingButton.style.background="#5E8B5A";
-
-setTimeout(()=>{
-
-bookingButton.innerHTML="Book Now";
-
-bookingButton.style.background="#73815D";
-
-},3500);
-
-});
-
-}
-
-/* ======================================
-   FLOATING BACKGROUND CIRCLES
-====================================== */
-
-function floatingCircle(){
-
-const circle=document.createElement("div");
-
-circle.classList.add("background-circle");
-
-circle.style.left=Math.random()*100+"vw";
-
-circle.style.width=(30+Math.random()*80)+"px";
-
-circle.style.height=circle.style.width;
-
-circle.style.animationDuration=(12+Math.random()*10)+"s";
-
-document.body.appendChild(circle);
-
-setTimeout(()=>{
-
-circle.remove();
-
-},22000);
-
-}
-
-setInterval(floatingCircle,2500);
-
-/* ======================================
-   END OF SCRIPT.JS
-====================================== */
-
-console.log("✨ Luxe Locks Website Loaded Successfully!");
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Locks Hair Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f7f4ee;
+            --text-color: #4a4238;
+            --accent-color: #c5a059;
+            --accent-pink: #e8b4b8;
+            --nav-bubble-bg: rgba(197, 160, 89, 0.15);
+            --nav-bubble-border: rgba(197, 160, 89, 0.4);
+            --card-bg: #ffffff;
+            --header-tint: #eee7dc;
+            --input-bg: #fff;
+            --border-color: #e2d8cc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121013;
+            --text-color: #f3e9f1;
+            --accent-color: #ff758c;
+            --accent-pink: #ffb6c1;
+            --nav-bubble-bg: rgba(255, 117, 140, 0.15);
+            --nav-bubble-border: rgba(255, 117, 140, 0.4);
+            --card-bg: #1e191f;
+            --header-tint: #2a2028;
+            --input-bg: #272128;
+            --border-color: #3e323f;
+        }
+
+        /* Glitter background effect for dark mode */
+        [data-theme="dark"] body {
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,0.2) 2px, transparent 40px),
+                radial-gradient(rgba(255,182,193,0.8), rgba(255,105,180,0.1) 1px, transparent 30px);
+            background-size: 550px 550px, 350px 350px;
+            background-position: 0 0, 40px 60px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background-color: var(--header-tint);
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Header & Bubble Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--header-tint);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bubble-nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .bubble {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: var(--nav-bubble-bg);
+            border: 1px solid var(--nav-bubble-border);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+            animation: floatBubble 4s ease-in-out infinite alternate;
+        }
+
+        .bubble:nth-child(even) { animation-duration: 5s; animation-delay: 1s; }
+        .bubble:nth-child(3) { animation-duration: 4.5s; animation-delay: 0.5s; }
+
+        .bubble:hover {
+            transform: scale(1.1) translateY(-3px);
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: none;
+            border: 2px solid var(--accent-color);
+            color: var(--text-color);
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 60px 5% 100px 5%;
+            background: linear-gradient(to bottom, var(--header-tint), var(--bg-color));
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            font-style: italic;
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #a3b18b;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-color);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover, .btn-outline:hover {
+            transform: scale(1.03);
+        }
+
+        .clients-review {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85krem;
+        }
+
+        .client-avatars img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-color);
+            margin-left: -12px;
+        }
+        .client-avatars img:first-child { margin-left: 0; }
+
+        .stars { color: #f4a261; font-size: 0.9rem; }
+
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 200px 200px 20px 20px;
+            object-fit: cover;
+            height: 480px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* Services & Booking Section Grid */
+        .main-container {
+            max-width: 1200px;
+            margin: -40px auto 60px auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h4 {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Services Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin: 15px 0 5px 0;
+        }
+
+        .service-card p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            background: var(--header-tint);
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Interactive Booking Widget */
+        .booking-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .booking-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            box-sizing: border-box;
+        }
+
+        .booking-submit-btn {
+            width: 100%;
+            background-color: #a3b18b;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .booking-submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Features Footer Banner */
+        .features-banner {
+            background-color: #a3b18b;
+            color: #fff;
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .feature-item h4 {
+            margin: 10px 0 5px 0;
+            font-size: 1rem;
+        }
+
+        .feature-item p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        @keyframes floatBubble {
+            0% { transform: translateY(0px) translateX(0px); }
+            100% { transform: translateY(-5px) translateX(4px); }
+        }
+
+        /* Responsive Design */
+        @media(max-width: 900px) {
+            .hero-section { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .content-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .features-banner { grid-template-columns: repeat(2, 1fr); }
+            .bubble-nav { display: none; } /* Simplified for smaller mobile screens */
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Top Bar -->
+    <div class="announcement-bar">
+        🎀 BOOK YOUR APPOINTMENT TODAY & FEEL YOUR BEST 🎀
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">Luxe Locks <span style="font-size: 1.2rem;">🎀</span></div>
+        
+        <nav class="bubble-nav">
+            <a href="#home" class="bubble">Home</a>
+            <a href="#services" class="bubble">Services</a>
+            <a href="#booking" class="bubble">Booking</a>
+            <button class="theme-toggle" onclick="toggleTheme()">✨ Glitter Dark Mode</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h3>Beauty. Confidence. You. 🤍</h3>
+            <h1>Where Beauty Meets <span>Confidence</span></h1>
+            <p>Luxury hair care services designed to make you look and feel your absolute best.</p>
+            
+            <div class="hero-buttons">
+                <a href="#booking" class="btn-primary">Book Your Appointment</a>
+                <a href="#services" class="btn-outline">View Services</a>
+            </div>
+
+            <div class="clients-review">
+                <div class="client-avatars">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Client">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" alt="Client">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100" alt="Client">
+                </div>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <span style="font-size: 0.8rem; font-weight: 500;">500+ Happy Clients</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600" alt="Hair Styling Salon">
+        </div>
+    </section>
+
+    <!-- Main Content Area: Services & Interactive Booking Form -->
+    <div class="main-container" id="services">
+        <div class="section-header">
+            <h4>Our Services 🤍</h4>
+            <h2>Treat Your Hair to the Best</h2>
+        </div>
+
+        <div class="content-grid">
+            <!-- Services Cards -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b9d1f6931c0d?w=400" alt="Sew-In Weave">
+                    <h3>Sew-In Weave</h3>
+                    <p>Natural. Flawless. Beautiful.</p>
+                    <div class="price-tag">R650</div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Braids">
+                    <h3>Braids</h3>
+                    <p>Neat. Stylish. Long-lasting.</p>
+                    <div class="price-tag">R500</div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400" alt="Hair Coloring">
+                    <h3>Hair Coloring</h3>
+                    <p>Vibrant color. Stunning you.</p>
+                    <div class="price-tag">R700</div>
+                </div>
+            </div>
+
+            <!-- Interactive Booking Widget -->
+            <div class="booking-card" id="booking">
+                <h3>Book Your Appointment 🎀</h3>
+                <form id="bookingForm" onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" class="form-control" id="clientName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-control" id="clientPhone" placeholder="082 123 4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Service</label>
+                        <select class="form-control" id="clientService" required>
+                            <option value="">Choose service...</option>
+                            <option value="Sew-In Weave (R650)">Sew-In Weave - R650</option>
+                            <option value="Braids (R500)">Braids - R500</option>
+                            <option value="Hair Coloring (R700)">Hair Coloring - R700</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Date</label>
+                        <input type="date" class="form-control" id="clientDate" required>
+                    </div>
+
+                    <button type="submit" class="booking-submit-btn">Book Now</button>
+                    <div class="success-message" id="successMsg">🎉 Appointment request sent successfully! We'll confirm via WhatsApp/SMS.</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Banner Footer -->
+    <div class="features-banner">
+        <div class="feature-item">
+            <span style="font-size: 1.5rem;">🤍</span>
+            <h4>Premium Products</h4>
+            <p>We use high-quality products for healthy, beautiful hair.</p>
+        </div>
+        <div class="feature-item">
+            <span style="font-size: 1.5rem;">🤍</span>
+            <h4>Skilled Stylists</h4>
+            <p>Experienced professionals who care about your look.</p>
+        </div>
+        <div class="feature-item">
+            <span style="font-size: 1.5rem;">🤍</span>
+            <h4>Clean & Cozy Salon</h4>
+            <p>A relaxing space made just for you.</p>
+        </div>
+        <div class="feature-item">
+            <span style="font-size: 1.5rem;">🤍</span>
+            <h4>100% Satisfaction</h4>
+            <p>Your happiness is our number one priority.</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute("data-theme");
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            if (currentTheme === "dark") {
+                body.setAttribute("data-theme", "light");
+                toggleBtn.textContent = "✨ Glitter Dark Mode";
+            } else {
+                body.setAttribute("data-theme", "dark");
+                toggleBtn.textContent = "🎀 Pastel Light Mode";
+            }
+        }
+
+        // Interactive Booking Form Logic
+        function handleBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('clientService').value;
+            const date = document.getElementById('clientDate').value;
+            
+            const successMsg = document.getElementById('successMsg');
+            successMsg.style.display = 'block';
+            successMsg.textContent = `🎉 Thank you ${name}! Your booking for ${service} on ${date} is confirmed.`;
+
+            // Reset form fields after 4 seconds
+            setTimeout(() => {
+                document.getElementById('bookingForm').reset();
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
