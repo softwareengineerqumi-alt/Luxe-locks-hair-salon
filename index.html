@@ -6,25 +6,22 @@
     <title>Luxe Locks Hair Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* --- Light Mode (Default Variables) --- */
         :root {
-            --bg-main: #FDFBF7;      /* Cream */
-            --text-main: #3E3E3E;    /* Dark Gray */
-            --sage-accent: #879374;  /* Sage Green */
-            --pink-accent: #E8A598;  /* Soft Pink */
+            --bg-main: #FDFBF7;
+            --text-main: #3E3E3E;
+            --sage-accent: #879374;
+            --pink-accent: #E8A598;
             --box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
-        /* --- Dark Mode (Class Variables) --- */
         body.dark-mode {
-            --bg-main: #121212;      /* Deep Black */
-            --text-main: #E0E0E0;    /* Off-White */
-            --sage-accent: #A4B48C;  /* Lighter Sage for contrast */
-            --pink-accent: #EFBDB4;  /* Lighter Pink for contrast */
+            --bg-main: #121212;
+            --text-main: #E0E0E0;
+            --sage-accent: #A4B48C;
+            --pink-accent: #EFBDB4;
             --box-shadow: 0 15px 30px rgba(255,255,255,0.05);
         }
 
-        /* --- Base Styles --- */
         * {
             margin: 0;
             padding: 0;
@@ -37,14 +34,9 @@
             color: var(--text-main);
             transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- Header --- */
         .announcement-bar {
             background-color: var(--sage-accent);
             color: #FFFFFF;
@@ -73,6 +65,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            color: var(--text-main);
+            text-decoration: none;
         }
 
         .nav-links {
@@ -83,11 +77,16 @@
             font-weight: 500;
         }
 
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
         .nav-links a:hover {
             color: var(--sage-accent);
         }
 
-        /* --- Dark Mode Toggle Switch --- */
+        /* Dark Mode Toggle Switch */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
@@ -112,10 +111,7 @@
         .slider {
             position: absolute;
             cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-color: #ccc;
             transition: .4s;
             border-radius: 34px;
@@ -126,8 +122,7 @@
             content: "";
             height: 18px;
             width: 18px;
-            left: 4px;
-            bottom: 3px;
+            left: 4px; bottom: 3px;
             background-color: white;
             transition: .4s;
             border-radius: 50%;
@@ -141,7 +136,50 @@
             transform: translateX(26px);
         }
 
-        /* --- Hero Section --- */
+        /* Floating Fun Bubbles Bar */
+        .floating-bubbles-nav {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bubble-btn {
+            background-color: var(--sage-accent);
+            color: #FFFFFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: floatBubble 3s ease-in-out infinite;
+        }
+
+        .bubble-btn:nth-child(even) {
+            animation-delay: 1.5s;
+            background-color: var(--pink-accent);
+        }
+
+        .bubble-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* Hero Section */
         .hero {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -173,7 +211,7 @@
 
         .hero-content p {
             font-size: 15px;
-            color: #888; /* Keeps subtitle gray in both modes */
+            color: #888;
             margin-bottom: 30px;
             max-width: 450px;
         }
@@ -191,8 +229,8 @@
             padding: 12px 28px;
             border-radius: 25px;
             font-weight: 500;
+            text-decoration: none;
             box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
         }
 
         .btn-secondary {
@@ -201,11 +239,10 @@
             padding: 12px 28px;
             border-radius: 25px;
             font-weight: 500;
+            text-decoration: none;
             border: 1px solid var(--sage-accent);
-            transition: all 0.3s ease;
         }
 
-        /* --- Reviews --- */
         .reviews-badge {
             display: flex;
             align-items: center;
@@ -218,9 +255,7 @@
             letter-spacing: 2px;
         }
 
-        /* --- Hero Image --- */
         .hero-image-container {
-            position: relative;
             display: flex;
             justify-content: center;
             padding-top: 20px;
@@ -233,11 +268,10 @@
             object-fit: cover;
             border-radius: 190px 190px 20px 20px;
             box-shadow: var(--box-shadow);
-            border: 6px solid var(--bg-main); /* White border changes with theme */
+            border: 6px solid var(--bg-main);
             transition: border-color 0.3s ease;
         }
 
-        /* --- Responsive --- */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -250,14 +284,13 @@
                 margin: 0 auto 30px auto;
             }
             .nav-links {
-                display: none; /* Hide basic links on mobile */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Announcement Bar -->
     <div class="announcement-bar">
         🎀 BOOK YOUR APPOINTMENT TODAY & FEEL YOUR BEST 🎀
     </div>
@@ -274,7 +307,6 @@
             <li><a href="#">Book Now</a></li>
         </ul>
 
-        <!-- Dark Mode Toggle Component -->
         <div class="theme-switch-wrapper">
             <span>Light</span>
             <label class="theme-switch" for="checkbox">
@@ -287,7 +319,15 @@
         <a href="#" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">Book Now</a>
     </nav>
 
-    <!-- Hero Section with Updated Image -->
+    <!-- Floating Fun Bubbles Nav -->
+    <div class="floating-bubbles-nav">
+        <a href="#" class="bubble-btn">Home</a>
+        <a href="#services" class="bubble-btn">Styles</a>
+        <a href="#gallery" class="bubble-btn">Gallery</a>
+        <a href="#book" class="bubble-btn">Book</a>
+    </div>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h3>Beauty. Confidence. You. 🤍</h3>
@@ -303,18 +343,14 @@
             </div>
         </div>
         <div class="hero-image-container">
-            <!-- Replaced original image with a professional photo of a Black woman with braids -->
-            <img src="https://images.unsplash.com/photo-1642084784744-45189c198c0c?auto=format&fit=crop&q=90&w=800" 
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800" 
                  alt="Beautiful Black woman with styled braids" 
                  class="hero-main-img">
         </div>
     </section>
 
-    <!-- JavaScript for Theme Switching -->
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-        
-        // Check for saved user preference
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) {
             document.body.classList.add(currentTheme);
@@ -322,7 +358,6 @@
                 toggleSwitch.checked = true;
             }
         }
-
         function toggleTheme() {
             if (toggleSwitch.checked) {
                 document.body.classList.add('dark-mode');
